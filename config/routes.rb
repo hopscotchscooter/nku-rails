@@ -1,4 +1,6 @@
 NkuRails::Application.routes.draw do
+  resources :attendances
+
   resources :posts do
     resources :comments
   end
