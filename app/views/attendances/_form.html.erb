@@ -11,13 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :attended_on %><br>
-    <%= f.text_field :attended_on %>
+  <div>
+    <p>The date is <%= attended_on = Time.now.strftime("%m/%d/%Y") %></p>
   </div>
   <div class="field">
     <%= f.label :seat_number %><br>
-    <%= f.number_field :seat_number %>
+    <%= f.text_field :seat_number %>
   </div>
   <div class="actions">
     <%= f.submit %>

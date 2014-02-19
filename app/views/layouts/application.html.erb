@@ -20,7 +20,7 @@
       <% if current_student %>
         <p class="navbar-text current-student">
           Hi <%= current_student.name %>! <%= link_to "Edit your profile", profile_path %> | 
-             <%= link_to "I'm here!", attendances_path %>
+             <%= link_to "I'm here!", new_attendance_path %>
         </p>
         <%= link_to "Sign out", sign_out_path, class: "btn btn-default navbar-btn"%></li>
       <% else %>
