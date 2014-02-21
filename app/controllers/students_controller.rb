@@ -22,6 +22,14 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
+  def self.in_seat(seat, date)
+    Student.joins(:attendances).where(attendances: {seat_number: seat, attended_on: date})
+  end
+
+  def self.absent(date)
+   Student.joins(:attendances).where.not(attendances: {attended_on: date})
+  end
+  
   private
 
   def student_params

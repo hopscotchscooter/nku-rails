@@ -11,13 +11,21 @@
     </div>
   <% end %>
 
-  <div>
-    <p>The date is <%= attended_on = Time.now.strftime("%m/%d/%Y") %></p>
-  </div>
   <div class="field">
-    <%= f.label :seat_number %><br>
     <%= f.text_field :seat_number %>
   </div>
+  <br>
+<table border-style="solid" border-width="5px" width="250px" padding="25px">
+    <tr width="150px">
+      <td align="center" bgcolor="#C0C0C0" width="150px">1</td>
+      <td align="center" bgcolor="#C0C0C0" width="150px">2</td>
+    </tr>
+    <tr>
+      <td align="center" bgcolor="#C0C0C0" width="150px">3</td>
+      <td align="center" bgcolor="#C0C0C0" width="150px">4</td>
+    </tr>
+</table>
+<br>
   <div class="actions">
     <%= f.submit %>
   </div>
