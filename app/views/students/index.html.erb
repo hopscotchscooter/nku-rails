@@ -1,6 +1,10 @@
 <div class="page-header">
   <h1>Students</h1>
-  <div style="align: right"><p>Date <input type="date" name="datesearch"></p></div>
+  <%= form_tag(attendances_path, method: "get") do %>
+  <%= label_tag(:q, "Date:") %>
+  <%= date_field_tag(:q) %>
+  <%= submit_tag("Go") %>
+<% end %>
 </div>
 
 <h1>Present</h1>
