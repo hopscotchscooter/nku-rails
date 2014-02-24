@@ -1,23 +1,27 @@
 <div class="page-header">
   <h1>Students</h1>
+  <div style="align: right"><p>Date <input type="date" name="datesearch"></p></div>
 </div>
 
 <h1>Present</h1>
-<table>
+<table class="seating-table">
   <tr>
-    <td></td>
-    <td>Seat 2</td>
+    <%= render partial: 'seat', locals: {seat_number: 1} %>
+    <%= render partial: 'seat', locals: {seat_number: 2} %>
   </tr>
   <tr>
-    <td>Seat 3</td>
-    <td>Seat 4</td>
+    <%= render partial: 'seat', locals: {seat_number: 3} %>
+    <%= render partial: 'seat', locals: {seat_number: 4} %>
   </tr>
+   <tfoot>
+     <tr>
+       <td colspan=2>Front of classroom</td>
+     </tr>
+  </tfoot>
 </table>
 
-
-
 <h1>Absent</h1>
-<% @students.each do |student| %>
+<% @students.absent.each do |student| %>
   <div id="<%=dom_id(student)%>" class="list-item">
     <div class="avatar pull-left" style='background-image: url(<%= student.avatar %>)'></div>
 

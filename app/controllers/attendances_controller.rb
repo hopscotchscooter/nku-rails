@@ -22,12 +22,11 @@ class AttendancesController < ApplicationController
 
   # POST /attendances
   def create
-    @attendance = Attendance.new(attendance_params)
-    @attendance.student_id = current_student.name
-    @attendance.attended_on = Time.now.strftime("%m/%d/%Y")
-    @attendance.seat_number = params[:attendance][:seat_number]
+    @attendance = current_student.attendances.build(attendance_params)
+    @attendance.attended_on = Date.today
+
     if @attendance.save
-      redirect_to attendances_path, notice: 'Attendance was successfully created.'
+      redirect_to students_path, notice: "You've logged your attendance for the day."
     else
       render action: 'new'
     end
@@ -46,14 +45,6 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance.destroy
     redirect_to attendances_url, notice: 'Attendance was successfully destroyed.'
-  end
-  
-  def self.in_seat(seat, date)
-    Student.joins(:attendances).where(attendances: {seat_number: seat, attended_on: date})
-  end
-
-  def self.absent(date)
-   Student.joins(:attendances).where.not(attendances: {attended_on: date})
   end
   
   private

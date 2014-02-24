@@ -21,14 +21,6 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
   end
-
-  def self.in_seat(seat, date)
-    Student.joins(:attendances).where(attendances: {seat_number: seat, attended_on: date})
-  end
-
-  def self.absent(date)
-   Student.joins(:attendances).where.not(attendances: {attended_on: date})
-  end
   
   private
 
