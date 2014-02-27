@@ -1,6 +1,8 @@
 NkuRails::Application.routes.draw do
+  get 'search' => 'attendances#search'
+  
   resources :attendances
-
+  
   resources :posts do
     resources :comments
   end

@@ -6,9 +6,15 @@ class AttendancesController < ApplicationController
     @attendances = Attendance.all
     
   end
-
+  
+  def search
+    @attendance = Attendance.find_by_attended_on params[:search_date]
+    render action: 'show'
+  end
+  
   # GET /attendances/1
   def show
+    @attendances = Attendance.all.find(params[:id])
   end
 
   # GET /attendances/new

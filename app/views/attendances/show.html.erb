@@ -6,9 +6,15 @@
 </p>
 
 <p>
+  <strong>Student Name:</strong>
+  <%= @attendance.student.name %>
+</p>
+
+<p>
   <strong>Seat number:</strong>
   <%= @attendance.seat_number %>
 </p>
+
 
 <%= link_to 'Edit', edit_attendance_path(@attendance) %> |
 <%= link_to 'Back', attendances_path %>
