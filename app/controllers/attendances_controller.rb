@@ -3,8 +3,11 @@ class AttendancesController < ApplicationController
 
   # GET /attendances
   def index
-    @attendances = Attendance.all
-    
+    if params[:student_id].present?
+      @attendances = Student.find(params[:student_id]).attendances
+    else
+      @attendances = Attendance.all
+    end
   end
   
   def search
