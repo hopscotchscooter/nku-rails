@@ -24,6 +24,9 @@
   </tfoot>
 </table>
 
+<div id="piechart" style="width: 900px; height: 500px;"></div>
+
+
 <h1>Absent</h1>
 <% @students.absent.each do |student| %>
   <div id="<%=dom_id(student)%>" class="list-item">
@@ -36,3 +39,6 @@
     </div>
   </div>
 <% end %>
+<script>
+  drawStudentChart(<%= Student.present.count %>, <%= Student.absent.count %>)
+</script>
