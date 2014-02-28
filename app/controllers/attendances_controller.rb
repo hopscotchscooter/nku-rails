@@ -29,7 +29,7 @@ class AttendancesController < ApplicationController
   # POST /attendances
   def create
     @attendance = current_student.attendances.build(attendance_params)
-    @attendance.attended_on = Date.today
+    @attendance.attended_on = Time.now.strftime("%Y-%m-%d")
 
     if @attendance.save
       redirect_to students_path, notice: "You've logged your attendance for the day."

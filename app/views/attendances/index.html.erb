@@ -15,8 +15,7 @@
       <tr>
         <td><%= attendance.attended_on %></td>
         <td><%= attendance.seat_number %></td> 
-        <td><%= link_to attendance.student.name, attendance %></td>
-        <td><%= link_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to attendance.student.name, student_path(@attendances) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,5 +23,5 @@
 
 <br>
 
-<%= link_to 'New Attendance', new_attendance_path %>
-<%= link_to 'Return to Main Directory', students_path %>
+
+<%= link_to 'Return to Bueller', students_path %>
