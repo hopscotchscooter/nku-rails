@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
   def new
     @student = Student.new
   end
@@ -19,6 +20,7 @@ class StudentsController < ApplicationController
   end
 
   def index
+    @current_date = params[:date] || Date.today
     @students = Student.all
   end
   

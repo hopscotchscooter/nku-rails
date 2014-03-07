@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
   def create
     student = Student.find_by(email: session_params[:email])
     if student && student.authenticate(session_params[:password])

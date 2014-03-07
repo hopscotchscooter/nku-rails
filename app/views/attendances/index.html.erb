@@ -12,10 +12,10 @@
 
   <tbody>
     <% @attendances.each do |attendance| %>
-      <tr>
+        <tr id="<%= dom_id(attendance) %>">
         <td><%= attendance.attended_on %></td>
         <td><%= attendance.seat_number %></td> 
-        <td><%= link_to attendance.student.name, student_path(@attendances) %></td>
+        <td><%= link_to attendance.student.name, student_attendances_path(attendance.student) %></td>
       </tr>
     <% end %>
   </tbody>
