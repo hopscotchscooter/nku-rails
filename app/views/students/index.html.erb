@@ -45,5 +45,5 @@
   </div>
 <% end %>
 <script>
-  drawStudentChart(<%= Student.present.count %>, <%= Student.absent.count %>)
+  drawStudentChart(<%= Student.present(@current_date).count %>, <%= Student.absent(@current_date).count %>)
 </script>
