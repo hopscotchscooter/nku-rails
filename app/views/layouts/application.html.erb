@@ -14,14 +14,15 @@
     <div class="navbar-header">
       <div class="navbar-brand">
         <%= link_to "Bueller", root_path %>
+      </div>
        <% if current_student %>
-        <p class="navar-text current-student">
+        <p class="navbar-text current-student">
         <%= link_to "All attendances", attendances_path %> |
         <%= link_to "All students", students_path %> | 
-        
+        <%= link_to "Seating Chart", students_path %> |
+        <%= link_to "My assignments", assignments_path %>
         <% else %>
         <% end %>  
-      </div>
     </div>
 
     <div class="collapse navbar-collapse navbar-right">

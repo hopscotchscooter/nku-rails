@@ -2,9 +2,11 @@ NkuRails::Application.routes.draw do
   get 'search' => 'attendances#search'
   
   resources :attendances
-
+  resources :assignments
+  
   resources :students, except: :edit do
     resources :attendances
+    resources :assignments
   end
   resources :sessions
 
