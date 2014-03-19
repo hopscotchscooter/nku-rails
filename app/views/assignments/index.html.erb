@@ -11,13 +11,14 @@
 
   <tbody>
     <% @assignments.each do |assignment| %>
-        <tr id="<%= dom_id(attendance) %>">
+    <tr id="<%= dom_id(assignment) %>">
         <td><%= assignment.name %></td>
         <td><%= assignment.score %></td>
         <td><%= assignment.total %></td>
-        <td><%= assignment.score / assignment.total %></td>
-      </tr>
+      <td></td>
+      <td><%= link_to 'Delete', assignment_path(assignment), method: :delete %></td>
     <% end %>
+    </tr>
   </tbody>
 </table>
 

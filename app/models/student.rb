@@ -1,6 +1,7 @@
 class Student < ActiveRecord::Base
   has_secure_password
   has_many :attendances
+  has_many :assignments
   def avatar
     Avatar.from_student(self)
   end

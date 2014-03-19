@@ -1,5 +1,6 @@
 NkuRails::Application.routes.draw do
   get 'search' => 'attendances#search'
+  post 'assignments/new' => 'assignments#create'
   
   resources :attendances
   resources :assignments

@@ -28,6 +28,7 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
   
+  
   private
 
   def student_params
