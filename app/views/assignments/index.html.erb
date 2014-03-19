@@ -1,24 +1,25 @@
 <h1>My Assignments</h1>
-<p id="notice"><%= notice %></p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Assignment Name</th>
+      <th>Score</th>
+      <th>Total</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Assignment</strong>
-  <%= @assignment.name %>
-</p>
-
-<p>
-  <strong>Score</strong>
-  <%= @assignment.score %>
-</p>
-
-<p>
-  <strong>Total</strong>
-  <%= @assignment.total %>
-</p>
-
-<p>
-  <strong>Percentage</strong>
-  <%= @assignment.score / @assignment.total %>
+  <tbody>
+    <% @assignments.each do |assignment| %>
+        <tr id="<%= dom_id(attendance) %>">
+        <td><%= assignment.name %></td>
+        <td><%= assignment.score %></td>
+        <td><%= assignment.total %></td>
+        <td><%= assignment.score / assignment.total %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 
