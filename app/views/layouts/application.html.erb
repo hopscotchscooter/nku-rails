@@ -13,7 +13,7 @@
   <nav class="navbar navbar-default">
     <div class="navbar-header">
       <div class="navbar-brand">
-        <%= link_to "Bueller", root_path %>
+        <%= link_to "Bueller", students_path %>
       </div>
       <% if current_student.try(:admin?) %>
         <p class="navbar-text current-student">
@@ -22,7 +22,16 @@
          <%= link_to "Seating Chart", students_path %> |
          <%= link_to "Create new assignments", new_assignment_path %> |
          <%= link_to "All assignments", assignments_path %>
-        <% elsif current_student %>
+        <p>
+          <%= form_tag assignments_path(:student_id), method: :get, class: "form-inline" do %>
+          <label>Display Grades for Student: </label>
+            <div class="form-group">
+              <%= collection_select(:student, :student_id, Student.all, :id, :name) %>
+            </div>
+            <button class="bt btn-default">Filter</button>
+           <% end %>
+         </p>
+          <% elsif current_student %>
           <p class="navbar-text current-student">
           <%= link_to "All attendances", attendances_path %> |
           <%= link_to "All students", students_path %> | 
@@ -30,7 +39,7 @@
           <%= link_to "My assignments", assignments_path %>
          <% else %>
         <% end %> 
-        
+      </p>
     </div>
 
     <div class="collapse navbar-collapse navbar-right">
@@ -38,8 +47,8 @@
         <p class="navbar-text current-student">
           Hi <%= current_student.name %>! <%= link_to "Edit your profile", profile_path %> | 
              <%= link_to "I'm here!", new_attendance_path %>
-        </p>
         <%= link_to "Sign out", sign_out_path, class: "btn btn-default navbar-btn"%></li>
+        </p>
       <% else %>
         <%= link_to "Sign up", new_student_path, class: "btn btn-default navbar-btn" %>
         <%= link_to "Sign in", new_session_path, class: "btn btn-primary navbar-btn" %>
