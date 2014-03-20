@@ -10,17 +10,21 @@
   </thead>
 
   <tbody>
+    <% scoreSum = 0 %>
+    <% totalCount = 0 %>
     <% @assignments.each do |assignment| %>
     <tr id="<%= dom_id(assignment) %>">
         <td><%= assignment.name %></td>
-        <td><%= assignment.score %></td>
-        <td><%= assignment.total %></td>
-      <td><%= number_to_percentage(assignment.score.to_f / assignment.total, precision: 2) %></td>
+        <td><%= assignment.score %><% scoreSum += assignment.score %></td>
+        <td><%= assignment.total %><% totalCount += assignment.total %></td>
+      <td><%= number_to_percentage(assignment.score.to_f / assignment.total * 100, precision: 0) %></td>
       <td><%= link_to 'Delete', assignment_path(assignment), method: :delete %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
-
-
+<p>
+  <b>Average is <%= number_to_percentage(scoreSum.to_f / totalCount * 100, precision: 0) %></b>
+</p>
 
 <%= link_to 'Return to Bueller', root_path %>

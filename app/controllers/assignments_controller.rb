@@ -1,9 +1,11 @@
 class AssignmentsController < ApplicationController
+  
   def index
+    @assignments = Assignment.all
     if params[:student_id].present?
       @assignments = Student.find(params[:student_id]).assignments
     else
-      @assignments = Assignment.all
+      nil
      end
   end
   
@@ -16,11 +18,7 @@ class AssignmentsController < ApplicationController
   def new
     @assignment = Assignment.new
   end
-  
-  def show
-    @assignments = current_student.assignments.find(params[:id])
-  end
-  
+    
   def create 
     @assignment = Assignment.new(assignment_params)
     
@@ -31,6 +29,9 @@ class AssignmentsController < ApplicationController
     end
   end
   
+   def show
+     @assignment = current_student.assignments.build(assignment_params)
+  end
 
   
   private
