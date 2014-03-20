@@ -22,10 +22,10 @@ class AssignmentsController < ApplicationController
   end
   
   def create 
-    @assignment = Assignment.create!(assignment_params)
-     
+    @assignment = Assignment.new(assignment_params)
+    
     if @assignment.save
-      redirect_to root_path, notice: "You've created an assignment."
+      redirect_to students_path, notice: "You've created an assignment."
     else
       render action: 'new'
     end

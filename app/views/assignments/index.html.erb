@@ -15,10 +15,9 @@
         <td><%= assignment.name %></td>
         <td><%= assignment.score %></td>
         <td><%= assignment.total %></td>
-      <td></td>
+      <td><%= number_to_percentage(assignment.score.to_f / assignment.total, precision: 2) %></td>
       <td><%= link_to 'Delete', assignment_path(assignment), method: :delete %></td>
     <% end %>
-    </tr>
   </tbody>
 </table>
 

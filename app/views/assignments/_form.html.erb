@@ -1,11 +1,10 @@
-<h1> TEST! </h1>
 <%= form_for :assignment do |f| %>
 
 
 <div class="row col-sm-6">
     <div class="form-group">
       <%= f.label 'Student Name' %>
-      <%=  %>
+      <%= collection_select(:student, :student_id, Student.all, :id, :name) %>
     </div>
 
     <div class="form-group">
