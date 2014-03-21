@@ -18,7 +18,6 @@
         <td><%= assignment.score %><% scoreSum += assignment.score %></td>
         <td><%= assignment.total %><% totalCount += assignment.total %></td>
       <td><%= number_to_percentage(assignment.score.to_f / assignment.total * 100, precision: 0) %></td>
-      <td><%= link_to 'Delete', assignment_path(assignment), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>
