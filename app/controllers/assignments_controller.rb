@@ -1,7 +1,7 @@
 class AssignmentsController < ApplicationController
   
   def index
-    @assignments = Assignment.all
+  @assignments = Assignment.all
     if params[:student_id].present?
       @assignments = Student.find(params[:student_id]).assignments
     else
