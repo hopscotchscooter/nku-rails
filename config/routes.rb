@@ -10,7 +10,10 @@ NkuRails::Application.routes.draw do
   end
   resources :sessions
   resources :attendances
-  resources :assignments
+  
+  resources :assignments do
+    collection { post :import }
+  end
   
   get "sign_out", to: "sessions#destroy"
   get "profile", to: "students#edit"

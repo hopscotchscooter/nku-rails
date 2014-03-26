@@ -1,4 +1,11 @@
 <h1>My Assignments</h1>
+  <p>
+    <label>Choose assignment to upload: </label>
+    <%= form_tag import_assignments_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>     
+    <% end %>
+  </p>
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +24,8 @@
         <td><%= assignment.name %></td>
         <td><%= assignment.score %><% scoreSum += assignment.score %></td>
         <td><%= assignment.total %><% totalCount += assignment.total %></td>
-      <td><%= number_to_percentage(assignment.score.to_f / assignment.total * 100, precision: 0) %></td>
+        <td><%= number_to_percentage(assignment.score.to_f / assignment.total * 100, precision: 0) %></td>
+        <td><%= link_to 'Delete', assignment_path(assignment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>

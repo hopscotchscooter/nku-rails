@@ -29,10 +29,14 @@ class AssignmentsController < ApplicationController
     end
   end
   
-   def show
+  def show
      @assignment = current_student.assignments.build(assignment_params)
   end
-
+  
+  def import
+    Assignment.import(params[:file])
+    redirect_to assignments_path, notice: "Assignment uploaded successfully."
+  end
   
   private
     def assignment_params
