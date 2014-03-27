@@ -1,13 +1,13 @@
 <h1>My Assignments</h1>
-<% if current_student.try(:admin?) %>  
-<p>
+  <% if current_student.try(:admin?) %>  
+  <p>
     <label>Choose assignment to upload: </label>
       <%= form_tag import_assignments_path, multipart: true do %>
-      <%= file_field_tag :file %>
-      <%= submit_tag "Import" %>     
+    <button class="bt btn-default navbar-btn"><%= file_field_tag :file%></button>
+    <button class="bt btn-default navbar-btn">Import</button>    
     <% end %>
   <% end %>
-  </p>
+</p>
 <table class="table">
   <thead>
     <tr>

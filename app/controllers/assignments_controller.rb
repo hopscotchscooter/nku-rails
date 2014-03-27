@@ -21,7 +21,6 @@ class AssignmentsController < ApplicationController
     
   def create 
     @assignment = Assignment.new(assignment_params)
-    
     if @assignment.save
       redirect_to students_path, notice: "You've created an assignment."
     else
